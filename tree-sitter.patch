@@ -1,0 +1,17 @@
+diff '--color=auto' -urN tree-sitter-ubuntu-noble/debian/compat tree-sitter-ubuntu-noble-on-focal/debian/compat
+--- tree-sitter-ubuntu-noble/debian/compat	1970-01-01 01:00:00.000000000 +0100
++++ tree-sitter-ubuntu-noble-on-focal/debian/compat	2024-01-05 20:06:31.130928055 +0100
+@@ -0,0 +1 @@
++10
+diff '--color=auto' -urN tree-sitter-ubuntu-noble/debian/control tree-sitter-ubuntu-noble-on-focal/debian/control
+--- tree-sitter-ubuntu-noble/debian/control	2023-07-04 15:09:44.000000000 +0200
++++ tree-sitter-ubuntu-noble-on-focal/debian/control	2024-01-05 20:07:18.691510136 +0100
+@@ -4,7 +4,7 @@
+ Uploaders:
+  James McCoy <jamessan@debian.org>,
+ Build-Depends:
+- debhelper-compat (= 13),
++ debhelper (>= 10),
+ Standards-Version: 4.6.2
+ Section: libs
+ Homepage: https://tree-sitter.github.io/tree-sitter/

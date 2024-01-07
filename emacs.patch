@@ -1,0 +1,40 @@
+diff '--color=auto' -urN emacs-ubuntu-noble/debian/compat emacs-ubuntu-noble-on-focal/debian/compat
+--- emacs-ubuntu-noble/debian/compat	1970-01-01 01:00:00.000000000 +0100
++++ emacs-ubuntu-noble-on-focal/debian/compat	2024-01-05 23:12:08.188666630 +0100
+@@ -0,0 +1 @@
++10
+diff '--color=auto' -urN emacs-ubuntu-noble/debian/control emacs-ubuntu-noble-on-focal/debian/control
+--- emacs-ubuntu-noble/debian/control	2023-08-30 09:53:05.000000000 +0200
++++ emacs-ubuntu-noble-on-focal/debian/control	2024-01-05 19:43:01.157674669 +0100
+@@ -9,8 +9,8 @@
+  bsd-mailx | mailx,
+  ca-certificates,
+  dbus-x11,
+- gcc-13,
+- debhelper-compat (= 13),
++ gcc-10,
++ debhelper (>= 10),
+  dpkg-dev (>> 1.10.0),
+  git,
+  gnupg-agent,
+@@ -19,7 +19,7 @@
+  libasound2-dev [!hurd-i386 !kfreebsd-i386 !kfreebsd-amd64],
+  libcairo-dev,
+  libdbus-1-dev,
+- libgccjit-13-dev,
++ libgccjit-10-dev,
+  libgif-dev,
+  libgmp-dev,
+  libgnutls28-dev,
+diff '--color=auto' -urN emacs-ubuntu-noble/debian/rules emacs-ubuntu-noble-on-focal/debian/rules
+--- emacs-ubuntu-noble/debian/rules	2023-09-02 12:03:12.000000000 +0200
++++ emacs-ubuntu-noble-on-focal/debian/rules	2024-01-05 23:47:09.996871738 +0100
+@@ -322,7 +322,7 @@
+ define cfg_tree
+   cd $(1) && \
+     CFLAGS="$(CFLAGS)" CPPFLAGS="$(CPPFLAGS)" LDFLAGS="$(LDFLAGS)" \
+-    CC=gcc-13 \
++    CC=gcc-10 \
+     REL_ALLOC=no \
+       $(CURDIR)/debian/build-src/configure $(confflags) $(2)
+ endef
