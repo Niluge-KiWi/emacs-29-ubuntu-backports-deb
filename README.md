@@ -8,6 +8,8 @@ You're maybe at the right location!
 
 I wanted to explore [Earthly](https://docs.earthly.dev/) for the build framework instead of raw docker, and here is the result:
 
+**Info**: check the other git branches for other Ubuntu versions.
+
 # Usage
 ## Build
 ([Get Earthly](https://docs.earthly.dev/), (which requires docker and git), then:)
