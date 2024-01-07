@@ -1,8 +1,8 @@
 VERSION 0.7
-FROM ubuntu:20.04
+FROM ubuntu:22.04
 WORKDIR /workdir
 
-# goal: build ubuntu 24.04 emacs package from ubuntu 20.04
+# goal: build ubuntu 24.04 emacs package from ubuntu 22.04
 # following: https://www.cmiss.org/cmgui/wiki/BuildingUbuntuPackagesFromSource
 RUN apt-get update
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y build-essential fakeroot dpkg-dev devscripts wget
@@ -18,7 +18,7 @@ build-tree-sitter:
 
     WORKDIR tree-sitter/
 
-    # patch build dependencies for ubuntu 20.04
+    # patch build dependencies for ubuntu 22.04
     COPY ./tree-sitter.patch .
     RUN patch -p1 < ./tree-sitter.patch
 
@@ -27,7 +27,7 @@ build-tree-sitter:
 
 
     # bump version and add changelog entry: https://wiki.debian.org/BuildingFormalBackports
-    RUN DEBFULLNAME="Thomas Riccardi <riccardi.thomas@gmail.com>" dch --distribution focal --force-distribution --nmu "Build-Dependencies adjustments for backport on ubuntu focal"
+    RUN DEBFULLNAME="Thomas Riccardi <riccardi.thomas@gmail.com>" dch --distribution jammy --force-distribution --nmu "Build-Dependencies adjustments for backport on ubuntu jammy"
 
     # build the source file
     RUN dpkg-buildpackage --build=binary
@@ -52,7 +52,7 @@ build-emacs:
 
     WORKDIR emacs/
 
-    # patch build dependencies for ubuntu 20.04
+    # patch build dependencies for ubuntu 22.04
     COPY ./emacs.patch .
     RUN patch -p1 < ./emacs.patch
 
@@ -67,7 +67,7 @@ build-emacs:
 
 
     # bump version and add changelog entry: https://wiki.debian.org/BuildingFormalBackports
-    RUN DEBFULLNAME="Thomas Riccardi <riccardi.thomas@gmail.com>" dch --distribution focal --force-distribution --nmu "Build-Dependencies adjustments for backport on ubuntu focal"
+    RUN DEBFULLNAME="Thomas Riccardi <riccardi.thomas@gmail.com>" dch --distribution jammy --force-distribution --nmu "Build-Dependencies adjustments for backport on ubuntu jammy"
 
     # build the source file
     RUN dpkg-buildpackage --build=binary
@@ -82,7 +82,7 @@ build-emacs:
 
 
 test:
-    FROM ubuntu:20.04
+    FROM ubuntu:22.04
     WORKDIR /workdir
     RUN apt-get update
     COPY +build-emacs/dist/*.deb .
