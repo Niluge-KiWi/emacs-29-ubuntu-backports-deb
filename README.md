@@ -22,7 +22,7 @@ earthly +build-emacs
 ## Install
 ```shell
 cd dist/
-sudo apt-get install -y ./emacs-bin-common_*.deb ./emacs-common_*.deb ./emacs-el_*.deb ./emacs-gtk_*.deb ./libtree-sitter0_*.deb
+sudo apt install ./emacs-bin-common_*.deb ./emacs-common_*.deb ./emacs-el_*.deb ./emacs-gtk_*.deb ./libtree-sitter0_*.deb
 ```
 (adapt if you want another variant than `gtk`, maybe `nox`?)
 
