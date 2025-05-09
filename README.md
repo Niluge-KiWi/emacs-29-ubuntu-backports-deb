@@ -1,4 +1,4 @@
-Got a need for a recent emacs 29.1?
+Got a need for a recent emacs 29.3?
 But not emacs-snapshot?
 Still using old ubuntu 22.04 (jammy)?
 Don't trust random PPA without source for rebuild?

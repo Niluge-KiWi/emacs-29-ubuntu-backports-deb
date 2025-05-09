@@ -43,12 +43,12 @@ build-tree-sitter:
 
 build-emacs:
     # get deb source files from ubuntu 24.04: https://packages.ubuntu.com/noble/emacs
-    RUN wget http://archive.ubuntu.com/ubuntu/pool/universe/e/emacs/emacs_29.1+1.orig.tar.xz
-    RUN wget http://archive.ubuntu.com/ubuntu/pool/universe/e/emacs/emacs_29.1+1-5ubuntu1.dsc
-    RUN wget http://archive.ubuntu.com/ubuntu/pool/universe/e/emacs/emacs_29.1+1-5ubuntu1.debian.tar.xz
+    RUN wget http://archive.ubuntu.com/ubuntu/pool/universe/e/emacs/emacs_29.3+1.orig.tar.xz
+    RUN wget http://archive.ubuntu.com/ubuntu/pool/universe/e/emacs/emacs_29.3+1-1ubuntu2.dsc
+    RUN wget http://archive.ubuntu.com/ubuntu/pool/universe/e/emacs/emacs_29.3+1-1ubuntu2.debian.tar.xz
 
     # extract the source and patch it using the diff file
-    RUN dpkg-source -x ./emacs_29.1+1-5ubuntu1.dsc ./emacs/
+    RUN dpkg-source -x ./emacs_29.3+1-1ubuntu2.dsc ./emacs/
 
     WORKDIR emacs/
 
